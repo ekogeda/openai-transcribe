@@ -10,9 +10,13 @@
 							<label class="input-group-text" for="audioFile">Upload</label>
 						</div>
 
-						<div v-if="errorMessage" class="alert alert-danger d-flex align-items-center mb-4" role="alert">
+						<div
+							v-if="errorMessage || errorTranscribing"
+							class="alert alert-danger d-flex align-items-center mb-4"
+							role="alert"
+						>
 							<Icon icon="octicon:alert-24" />&nbsp;
-							<div>{{ errorMessage }}</div>
+							<div>{{ errorMessage || errorTranscribing }}</div>
 						</div>
 
 						<button class="btn btn-primary mb-4" @click="transcribeAudio">Transcribe Audio</button>
@@ -38,7 +42,7 @@ import Spinner from './BSSpinner.vue';
 import { ref, onMounted } from 'vue';
 import { useTranscribe } from '../composables/useAudioTranscription';
 
-const { transcriptResult, transcribe } = useTranscribe();
+const { transcriptResult, transcribe, errorTranscribing } = useTranscribe();
 const fileInput = ref(null);
 const loading = ref(false);
 const errorMessage = ref(null);

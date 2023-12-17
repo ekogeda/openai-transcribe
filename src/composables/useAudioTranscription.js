@@ -5,6 +5,7 @@ import axios from 'axios';
 
 export function useTranscribe() {
 	const transcriptResult = ref(null);
+	const errorTranscribing = ref(null);
 
 	async function transcribe(file) {
 		try {
@@ -23,8 +24,9 @@ export function useTranscribe() {
 		} catch (error) {
 			console.error('Error transcribing audio:', error.response.data.error.message);
 			transcriptResult.value = null;
+			errorTranscribing.value = error.response.data.error.message;
 		}
 	}
 
-	return { transcriptResult, transcribe };
+	return { transcriptResult, transcribe, errorTranscribing };
 }
