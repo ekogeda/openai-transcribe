@@ -21,7 +21,7 @@ export function useTranscribe() {
 
 			transcriptResult.value = transcription.data.text;
 		} catch (error) {
-			console.error('Error transcribing audio:', error);
+			console.error('Error transcribing audio:', error.response.data.error.message);
 			transcriptResult.value = null;
 		}
 	}
