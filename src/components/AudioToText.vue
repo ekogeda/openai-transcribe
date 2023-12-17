@@ -15,7 +15,7 @@
 							class="alert alert-danger d-flex align-items-center mb-4"
 							role="alert"
 						>
-							<Icon icon="octicon:alert-24" />&nbsp;
+							<Icon icon="octicon:alert-24" style="font-size: 2rem;" />&nbsp;
 							<div>{{ errorMessage || errorTranscribing }}</div>
 						</div>
 
