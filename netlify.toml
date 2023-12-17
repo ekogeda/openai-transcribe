@@ -4,4 +4,4 @@
   status = 200
 
 [context.production.environment]
-  VITE_OPENAI_API_KEY="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"
+  VITE_OPENAI_API_KEY="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"
